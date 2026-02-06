@@ -1,5 +1,7 @@
 # Project Overview: Kaushik - Retro Portfolio
 
+[**🔴 Live Website**](https://kaushik-k.onrender.com)
+
 A 3D interactive portfolio website featuring a retro computer interface. It combines a 3D WebGL scene (Three.js) with a functional terminal emulator and a standard DOM overlay for content.
 
 ## 🛠 Technology Stack
