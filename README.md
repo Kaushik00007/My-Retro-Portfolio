@@ -72,3 +72,11 @@ Standard HTML/CSS UI elements overlaid on the 3D canvas.
     ```bash
     npm run build
     ```
+## 📧 Contact
+For any queries, reach out via:
+
+- 📧 Email: kaushi00007@gmail.com  
+- 🔗 LinkedIn: https://www.linkedin.com/in/kaushik-k-dev
+- 🌍 GitHub: https://github.com/Kaushik00007/Kaushik00007
+
+## Built with using TypeScript, Node.js, Machine Learning, and Streamlit. 
