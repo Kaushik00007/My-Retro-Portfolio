@@ -79,4 +79,4 @@ For any queries, reach out via:
 - 🔗 LinkedIn: https://www.linkedin.com/in/kaushik-k-dev
 - 🌍 GitHub: https://github.com/Kaushik00007/Kaushik00007
 
-## Built with using TypeScript, Node.js, Machine Learning, and Streamlit. 
+## Built with using TypeScript, Three.js, vite and Node.js.
