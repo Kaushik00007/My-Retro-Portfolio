@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Kaushik K – Portfolio</title>
+  <meta name="description"
+    content="My name is Kaushik K. I'm a software engineering enthusiast with hands-on experience in full-stack development and AI-based solutions. Skilled in developing scalable, user-centric applications." />
+
+  <link rel="icon" type="image/png" href="/icon/logo.png" />
+
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/logo.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Kaushik K – Portfolio" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#ffae42" />
+
+  <meta property="og:title" content="Kaushik K – Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Kaushik00007/" />
+  <meta property="og:image" content="" />
+  <meta name="og:description"
+    content="My name is Kaushik K. I'm a software engineering enthusiast with hands-on experience in full-stack development and AI-based solutions." />
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    :root {
+      --color: #525252;
+    }
+
+    body {
+      background-color: #ffae42;
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    body:not(.loaded) {
+      overflow: hidden;
+      /* Prevent scrolling initially */
+    }
+
+    body:not(.loaded) #hero-backup,
+    body:not(.loaded) nav,
+    body:not(.loaded) main,
+    body:not(.loaded) footer {
+      display: none;
+      /* Hide UI elements initially */
+    }
+
+    #loading {
+      color: var(--color);
+      background-color: #ffae42;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10vw;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    #loading h2 {
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      color: var(--color);
+      font-family: monospace;
+      font-size: 2em;
+    }
+
+    #loading-bar {
+      position: relative;
+      width: 100%;
+      height: 64px;
+      border: dashed 2px var(--color);
+      box-sizing: border-box;
+    }
+
+    #loading-bar-progress {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+      background-color: var(--color);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s;
+    }
+  </style>
+  <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+  <div id="home"></div>
+
+  <canvas class="webgl"></canvas>
+
+  <div id="hero-backup">
+    <h3>Hi there, I’m</h3>
+    <h1>Kaushik K</h1>
+    <ul>
+      <li>Software Developer</li>
+      <li>AI Enthusiast</li>
+    </ul>
+  </div>
+
+  <nav>
+    <div class="menu-btn">
+      <button class="btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <svg width="16" height="16">
+          <rect class="st0" width="16" height="3.2" />
+          <rect y="6.4" class="st0" width="16" height="3.2" />
+          <rect y="12.8" class="st0" width="16" height="3.2" />
+        </svg>
+      </button>
+      <div style="display: flex">
+        <a class="btn" href="https://www.linkedin.com/in/kaushik-k-dev" target="_blank" aria-label="LinkedIn">
+          <svg width="16" height="16">
+            <path d="M0.1,2c0-1,0.8-1.8,1.9-1.8c1,0,1.8,0.9,1.8,1.8c0,1-0.8,1.9-1.8,1.9C0.9,3.9,0.1,3.1,0.1,2z M0.1,5h3.7v9.8
+                H0.1V5z" />
+            <path d="M15.9,8.5v6.2h-3.5V9.4c0-0.9-0.6-1.6-1.5-1.6c-0.8,0-1.4,0.6-1.4,1.5v5.5H5.8V5h3.7v1
+                c0.6-0.7,1.6-1.2,2.8-1.2C14.4,4.7,15.9,6.3,15.9,8.5z" />
+          </svg>
+        </a>
+        <a class="btn" href="https://github.com/Kaushik00007/" target="_blank" aria-label="GitHub">
+          <svg width="16" height="16">
+            <path d="M10.6,12.9c0-1-0.3-1.6-0.7-2c2.4-0.3,4.9-1.1,4.9-5.2c0-1.1-0.4-2.1-1.1-2.9c0.1-0.3,0.5-1.3-0.1-2.8
+                c0,0-0.9-0.3-3,1.1c-1.7-0.5-3.6-0.5-5.4,0c-2-1.4-3-1.1-3-1.1C1.6,1.4,2,2.5,2.1,2.8C1.4,3.5,1,4.6,1,5.6c0,4.1,2.5,5,4.9,5.3
+                c-0.4,0.4-0.6,0.9-0.7,1.4c-0.6,0.3-2.2,0.7-3.1-0.9c0,0-0.6-1-1.6-1.1c0,0-1.1,0-0.1,0.7c0,0,0.7,0.3,1.1,1.6c0,0,0.6,2.1,3.6,1.5
+                c0,0.9,0,1.8,0,1.8h5.3C10.6,15.9,10.6,14.4,10.6,12.9z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="menu-body" onclick="closeMenu()">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#aboutMe" onclick="closeMenu()">About</a>
+      <a href="#experience-section" onclick="closeMenu()">Experience</a>
+      <a href="#projects" onclick="closeMenu()">Projects</a>
+      <a href="#education-section" onclick="closeMenu()">Education</a>
+      <a href="#certifications" onclick="closeMenu()">Certifications</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+    </div>
+
+    <div id="tip-scroll">Scroll &#8595;</div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="about-container">
+        <div class="about-header-section reveal-on-scroll">
+          <div class="about-text">
+            <h1 id="aboutMe">About Me</h1>
+            <p>
+              I'm Kaushik, a software engineering enthusiast with hands-on experience in full-stack development and
+              AI-based solutions.
+            </p>
+            <p>
+              Skilled in developing scalable, secure, and user-centric applications, with hands-on experience across
+              frontend development, backend services, cloud platforms, and database management. My focus is on writing
+              clean, efficient code and designing systems that are reliable and maintainable.
+            </p>
+            <p>
+              I'm eager to apply engineering principles to develop efficient software that solves real-world problems.
+              Let's work together to bring your ideas to life!
+            </p>
+          </div>
+          <div class="about-image-wrapper">
+            <img src="/src/img/profile-pic.png" alt="Kaushik K" class="about-profile-img" />
+            <div class="about-resume-wrapper">
+              <a href="#" class="btn resume-btn resume-open-btn">View Resume</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-highlights-grid">
+          <!-- Card 1 -->
+          <div class="highlight-card reveal-on-scroll">
+            <div class="highlight-icon">
+              <!-- Code brackets icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3>Full Stack Development</h3>
+            <p>Building end-to-end solutions with modern technologies and best practices.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="highlight-card reveal-on-scroll">
+            <div class="highlight-icon">
+              <!-- Palette icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z">
+                </path>
+              </svg>
+            </div>
+            <h3>Frontend & UI/UX</h3>
+            <p>Specializing in creating responsive web applications with a user-friendly UI.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="highlight-card reveal-on-scroll">
+            <div class="highlight-icon">
+              <!-- Laptop/Terminal icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Software Engineering</h3>
+            <p>Proficient in developing robust applications using Java, Python, and SQL.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills-section">
+      <h1>Skills & Expertise</h1>
+
+      <div class="skills-tabs">
+        <button class="tab-btn active" onclick="switchTab('frontend')">Frontend</button>
+        <button class="tab-btn" onclick="switchTab('backend')">Backend</button>
+        <button class="tab-btn" onclick="switchTab('tools')">Tools & AI</button>
+      </div>
+
+      <div class="skills-content active" id="frontend">
+        <div class="skill-card">HTML/CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">React</div>
+      </div>
+
+      <div class="skills-content" id="backend">
+        <div class="skill-card">Node.js</div>
+        <div class="skill-card">Express.js</div>
+        <div class="skill-card">MongoDB</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">API Integration</div>
+        <div class="skill-card">Java</div>
+        <div class="skill-card">C</div>
+      </div>
+
+      <div class="skills-content" id="tools">
+        <div class="skill-card">GCP</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">GitHub</div>
+        <div class="skill-card">Machine Learning</div>
+        <div class="skill-card">NLP</div>
+        <div class="skill-card">VS Code</div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience-section">
+      <h1>Work Experience</h1>
+      <p>My professional journey and industry experience.</p>
+
+      <div class="tech-carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scrollCarousel(-1)" aria-label="Previous">
+          &#10094;
+        </button>
+
+        <div class="tech-carousel-track" id="experience-track">
+          <!-- Experience Card 1: EyeQ -->
+          <div class="tech-card hidden-element">
+            <div class="tech-logo-container" style="--accent-color: #ffae42;">
+              <div class="tech-logo-shimmer"></div>
+              <img src="/src/img/eyeq-logo.png" class="tech-logo-img" alt="EyeQ Logo">
+            </div>
+            <div class="tech-content">
+              <div class="tech-header">
+                <h2 class="tech-role">Full Stack Intern</h2>
+                <span class="tech-date">Jan 2026 - Jul 2026</span>
+              </div>
+              <div class="tech-company">EyeQ Dot Net Pvt Ltd</div>
+              <div class="tech-body">
+                <ul>
+                  <li>Developed a Capture The Flag (CTF) platform for cybersecurity training and competitions.</li>
+                  <li>Implemented real-time leaderboards and scoring systems using WebSockets/Socket.io.</li>
+                  <li>Designed and deployed secure challenges in Web, Crypto, and Pwn categories.</li>
+                </ul>
+              </div>
+              <div class="tech-footer">
+                <span class="tech-chip">MongoDB</span>
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">React.js</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Card 2: Softionik (Newest) -->
+          <div class="tech-card hidden-element">
+            <div class="tech-logo-container" style="--accent-color: #6c5ce7;">
+              <div class="tech-logo-shimmer"></div>
+              <img src="/src/img/softionik.png" class="tech-logo-img" alt="Softionik Logo">
+            </div>
+            <div class="tech-content">
+              <div class="tech-header">
+                <h2 class="tech-role">Full Stack Web Development Intern</h2>
+                <span class="tech-date">May 2025 - June 2025</span>
+              </div>
+              <div class="tech-company">Softionik</div>
+              <div class="tech-body">
+                <ul>
+                  <li>Developed full-stack features using MERN stack, increasing delivery speed by 30%.</li>
+                  <li>Tested 5+ REST APIs using Postman and MongoDB for smooth frontend-backend integration.</li>
+                  <li>Found and fixed 10+ database issues, improving query performance by 25%.</li>
+                </ul>
+              </div>
+              <div class="tech-footer">
+                <span class="tech-chip">MERN Stack</span>
+                <span class="tech-chip">Postman</span>
+                <span class="tech-chip">MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Card 3: Edunet -->
+          <div class="tech-card hidden-element">
+            <div class="tech-logo-container" style="--accent-color: #00e5ff;">
+              <div class="tech-logo-shimmer"></div>
+              <img src="/src/img/edunet-logo.png" class="tech-logo-img" alt="Edunet Logo">
+            </div>
+            <div class="tech-content">
+              <div class="tech-header">
+                <h2 class="tech-role">AI Intern</h2>
+                <span class="tech-date">March 2025 - April 2025</span>
+              </div>
+              <div class="tech-company">Edunet Foundation</div>
+              <div class="tech-body">
+                <ul>
+                  <li>Built an NLP-based chatbot with speech-to-text support handling 100+ inputs.</li>
+                  <li>Designed a responsive UI using Streamlit, improving interaction success by 40%.</li>
+                </ul>
+              </div>
+              <div class="tech-footer">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">NLP</span>
+                <span class="tech-chip">Streamlit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-btn next" onclick="scrollCarousel(1)" aria-label="Next">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+
+
+    <section>
+      <h1 id="projects">Projects</h1>
+      <hr />
+      <p>
+        This represents a selection of my recent work in software development and AI.
+      </p>
+
+      <div class="projects-grid">
+        <!-- Project 1: SkillMatch AI -->
+        <article class="project-card">
+          <h2>SkillMatch AI</h2>
+          <ul class="skills">
+            <li>Python</li>
+            <li>NLP</li>
+            <li>Machine Learning</li>
+          </ul>
+          <div class="image">
+            <img src="/src/img/skillmatch.png" alt="SkillMatch AI screenshot" loading="lazy"
+              style="aspect-ratio: 16 / 9" />
+          </div>
+          <p>
+            An automated resume screening tool that evaluates and ranks resumes against job descriptions using TF-IDF
+            and Cosine Similarity, increasing shortlisting accuracy by 30%.
+          </p>
+          <p><a href="https://github.com/Kaushik00007/SkillMatch_AI">Source Code</a></p>
+        </article>
+
+        <!-- Project 2: Nexora -->
+        <article class="project-card">
+          <h2>Nexora</h2>
+          <ul class="skills">
+            <li>MERN</li>
+            <li>FullStack</li>
+            <li>React</li>
+            <li>Node.js</li>
+          </ul>
+          <div class="image">
+            <img src="/src/img/nexora.png" alt="Nexora screenshot" loading="lazy" style="aspect-ratio: 16 / 9" />
+          </div>
+          <p>
+            A full-stack project management tool built with React, Node.js, Express.js, and MongoDB featuring real-time
+            task updates, role-based access, and API integrations.
+          </p>
+          <p><a href="https://github.com/Kaushik00007/NEXORA">Source Code</a></p>
+        </article>
+
+        <!-- Project 3: AI Chatbot -->
+        <article class="project-card hidden-project" style="display: none;">
+          <h2>AI Chatbot with NLP</h2>
+          <ul class="skills">
+            <li>Python</li>
+            <li>NLP</li>
+            <li>Streamlit</li>
+          </ul>
+          <div class="image">
+            <img src="/src/img/chatbot.png" alt="AI Chatbot screenshot" loading="lazy" style="aspect-ratio: 16 / 9" />
+          </div>
+          <p>
+            A Machine Learning-powered chatbot that understands text & voice inputs, supports topic-based conversations,
+            and provides real-time responses using NLP.
+          </p>
+          <p><a href="https://github.com/Kaushik00007/Chatbot-NLP">Source Code</a></p>
+        </article>
+
+        <!-- Project 4: Sci-Fi Galactic Warfare -->
+        <article class="project-card hidden-project" style="display: none;">
+          <h2>Sci-Fi Galactic Warfare</h2>
+          <ul class="skills">
+            <li>Python</li>
+            <li>Pygame</li>
+            <li>Game Dev</li>
+          </ul>
+          <div class="image">
+            <img src="/src/img/scifi.png" alt="Sci-Fi Galactic Warfare screenshot" loading="lazy"
+              style="aspect-ratio: 16 / 9" />
+          </div>
+          <p>
+            A fast-paced 2D space shooter game built with Python and Pygame featuring AI-driven enemies, power-up
+            systems, explosion animations, and modular architecture.
+          </p>
+          <p><a href="https://github.com/Kaushik00007/space-shooter-game">Source Code</a></p>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button id="see-all-btn" class="btn" onclick="toggleProjects()" aria-label="See All Projects">
+          See All Projects
+        </button>
+      </div>
+
+      <hr />
+    </section>
+
+    <!-- Education Section -->
+    <section id="education-section">
+      <div class="section-title-wrapper">
+        <h1><i class="icon" style="vertical-align: middle; margin-right: 8px;">🎓</i>Academic Journey</h1>
+        <p>Educational background, achievements, and academic excellence</p>
+      </div>
+
+      <div class="education-container">
+        <div class="education-card">
+          <!-- Banner with Logo and College Info overlay -->
+          <div class="education-banner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+              <div class="college-logo-wrapper">
+                <img src="/src/img/srinivas.png" alt="Srinivas University Logo" class="college-logo-img" />
+              </div>
+              <div class="college-info-banner">
+                <h2 class="institute-name">Srinivas University Institute of Engineering and Technology</h2>
+                <span class="location-badge">📍 Mangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Body with Degree and Stats -->
+          <div class="education-body">
+            <h3 class="degree-title">Bachelor of Technology in Computer Science and Engineering</h3>
+
+            <div class="education-stats">
+              <span class="stat-pill"><i class="icon">📅</i> 2022 - 2026</span>
+              <span class="stat-pill"><i class="icon">📈</i> CGPA: 8.71/10</span>
+            </div>
+
+            <div class="coursework-section">
+              <p>Relevant Coursework:</p>
+              <div class="coursework-tags">
+                <span class="tech-chip">Data Structures</span>
+                <span class="tech-chip">Algorithms</span>
+                <span class="tech-chip">DBMS</span>
+                <span class="tech-chip">OS</span>
+                <span class="tech-chip">Computer Networks</span>
+                <span class="tech-chip">AI/ML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <h1>Certifications & Achievements</h1>
+      <p style="text-align: center; margin-bottom: 32px;">WHAT I'VE ACHIEVED</p>
+
+      <div class="cert-marquee-container">
+        <!-- Duplicate content track for seamless infinite loop -->
+        <div class="cert-marquee-track">
+          <!-- ORIGINAL SET -->
+          <!-- Card 1: Oracle -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/oracle.png" alt="Oracle Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>OCI Generative AI Professional</h2>
+                <span class="cert-provider">Oracle</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 02/2025</span>
+                <span>ID: OCI-GAI-2025</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Generative AI</span>
+                <span class="cert-tag">LLMs</span>
+                <span class="cert-tag">Oracle Cloud</span>
+                <span class="cert-tag">AI Deployment</span>
+              </div>
+              <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=7B160F9051DAEAD195E362CB77DCDFCEA100B2ECF633D3BD1A861EC6D68E3E5D"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Google Cloud -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/googlecloud.png" alt="Google Cloud Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>Google Cloud Arcade - 2x Legend</h2>
+                <span class="cert-provider">Google</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 12/2024</span>
+                <span>ID: GCA-2X-LEGEND</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Google Cloud</span>
+                <span class="cert-tag">Cloud Computing</span>
+                <span class="cert-tag">Hands-on Labs</span>
+                <span class="cert-tag">DevOps</span>
+              </div>
+              <a href="https://www.skills.google/public_profiles/4d60ae2d-dbdb-4ade-8d1d-5bd16a3caeb7" target="_blank"
+                class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 3: AWS -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/aws.png" alt="AWS Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>AWS Academy Cloud Foundations</h2>
+                <span class="cert-provider">Amazon Web Services</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 01/31/2025</span>
+                <span>ID: AWS-CF-2025</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">AWS Architecture</span>
+                <span class="cert-tag">AWS Cloud</span>
+                <span class="cert-tag">Core Services</span>
+                <span class="cert-tag">AWS Support</span>
+              </div>
+              <a href="https://www.credly.com/badges/56aad1c0-774a-4300-9078-9e2541bade90/linked_in_profile"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 4: IT Specialist -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/certiport.png" alt="Certiport Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>IT Specialist: Databases</h2>
+                <span class="cert-provider">Certiport - Pearson Vue</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 08/19/2024</span>
+                <span>ID: d9V6-Dwzr</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Database Design</span>
+                <span class="cert-tag">SQL Proficiency</span>
+                <span class="cert-tag">Data Management</span>
+                <span class="cert-tag">Database Security</span>
+              </div>
+              <a href="https://www.certiport.com/Portal/Pages/CredentialVerification.aspx?code=d9V6-Dwzr"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- DUPLICATE SET (For Marquee) -->
+          <!-- Card 1: Oracle -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/oracle.png" alt="Oracle Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>OCI Generative AI Professional</h2>
+                <span class="cert-provider">Oracle</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 02/2025</span>
+                <span>ID: OCI-GAI-2025</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Generative AI</span>
+                <span class="cert-tag">LLMs</span>
+                <span class="cert-tag">Oracle Cloud</span>
+                <span class="cert-tag">AI Deployment</span>
+              </div>
+              <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=7B160F9051DAEAD195E362CB77DCDFCEA100B2ECF633D3BD1A861EC6D68E3E5D"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Google Cloud -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/googlecloud.png" alt="Google Cloud Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>Google Cloud Arcade - 2x Legend</h2>
+                <span class="cert-provider">Google</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 12/2024</span>
+                <span>ID: GCA-2X-LEGEND</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Google Cloud</span>
+                <span class="cert-tag">Cloud Computing</span>
+                <span class="cert-tag">Hands-on Labs</span>
+                <span class="cert-tag">DevOps</span>
+              </div>
+              <a href="https://www.skills.google/public_profiles/4d60ae2d-dbdb-4ade-8d1d-5bd16a3caeb7" target="_blank"
+                class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 3: AWS -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/aws.png" alt="AWS Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>AWS Academy Cloud Foundations</h2>
+                <span class="cert-provider">Amazon Web Services</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 01/31/2025</span>
+                <span>ID: AWS-CF-2025</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">AWS Architecture</span>
+                <span class="cert-tag">AWS Cloud</span>
+                <span class="cert-tag">Core Services</span>
+                <span class="cert-tag">AWS Support</span>
+              </div>
+              <a href="https://www.credly.com/badges/56aad1c0-774a-4300-9078-9e2541bade90/linked_in_profile"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+
+          <!-- Card 4: IT Specialist -->
+          <div class="cert-card">
+            <div class="cert-header">
+              <div class="cert-logo-container">
+                <img src="/src/img/certiport.png" alt="Certiport Logo" class="cert-logo-img">
+              </div>
+              <div class="cert-meta">
+                <h2>IT Specialist: Databases</h2>
+                <span class="cert-provider">Certiport - Pearson Vue</span>
+              </div>
+            </div>
+            <div class="cert-body">
+              <div class="cert-details">
+                <span><i class="icon">📅</i> 08/19/2024</span>
+                <span>ID: d9V6-Dwzr</span>
+              </div>
+              <div class="cert-tags">
+                <span class="cert-tag">Database Design</span>
+                <span class="cert-tag">SQL Proficiency</span>
+                <span class="cert-tag">Data Management</span>
+                <span class="cert-tag">Database Security</span>
+              </div>
+              <a href="https://www.certiport.com/Portal/Pages/CredentialVerification.aspx?code=d9V6-Dwzr"
+                target="_blank" class="cert-link btn">View Certificate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-card">
+          <div class="contact-header">
+            <h2>Start a Quest?</h2>
+            <p>Have a question or want to work together? Leave a message!</p>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  Player Name
+                </label>
+                <input type="text" id="name" name="name" class="retro-input" placeholder="Enter your name..." required>
+              </div>
+              <div class="form-group">
+                <label for="email">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Email Address
+                </label>
+                <input type="email" id="email" name="email" class="retro-input" placeholder="name@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Mission Details
+              </label>
+              <textarea id="message" name="message" class="retro-input" placeholder="How can I help you?"
+                required></textarea>
+            </div>
+
+            <div class="send-btn-wrapper">
+              <button type="submit" class="retro-btn">
+                Send Message <span style="font-size:1.2em">
+              </button>
+            </div>
+          </form>
+
+          <div class="contact-footer-info">
+            Connect directly: <a href="mailto:kaushi00007@gmail.com" style="color:#ffae42;">kaushi00007@gmail.com</a>
+            <br>or find me on <a href="https://www.linkedin.com/in/kaushik-k-dev" style="color:#ffae42;">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <input type="text" id="textarea" readonly title="Terminal Input" />
+  <div id="loading">
+    <h2>Booting...</h2>
+    <div id="loading-bar">
+      <div id="loading-bar-progress"></div>
+    </div>
+    <div id="loading-items">Starting...</div>
+    <div class="loading-watermark">Portfolio 2026</div>
+  </div>
+  <footer>
+    <div>COPYRIGHT © 2026 Kaushik K.</div>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      // Remove active class from all tabs and contents
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.skills-content').forEach(content => content.classList.remove('active'));
+
+      // Add active class to clicked tab and corresponding content
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function closeMenu() {
+      document.getElementsByTagName("nav")[0].classList.remove(["active"]);
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementsByTagName("nav")[0];
+      if (nav.classList.contains("active")) {
+        nav.classList.remove(["active"]);
+      } else {
+        nav.classList.add("active");
+      }
+    }
+
+    function toggleProjects() {
+      const hiddenProjects = document.querySelectorAll('.hidden-project');
+      const btn = document.getElementById('see-all-btn');
+
+      hiddenProjects.forEach(project => {
+        if (project.style.display === 'none') {
+          project.style.display = 'flex';
+          btn.textContent = 'Show Less';
+        } else {
+          project.style.display = 'none';
+          btn.textContent = 'See All Projects';
+        }
+      });
+    }
+
+    // Scroll Animation Observer
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show-element');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      const hiddenElements = document.querySelectorAll('.hidden-element');
+      hiddenElements.forEach((el) => observer.observe(el));
+    });
+
+    // Carousel Navigation
+    function scrollCarousel(direction) {
+      const track = document.getElementById('experience-track');
+      const cardWidth = track.querySelector('.tech-card').offsetWidth;
+      const gap = 32; // Gap defined in CSS
+      const scrollAmount = (cardWidth + gap) * direction;
+
+      track.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script fetchpriority="high" src="https://cdn-ts.netlify.app/webgl-helper@3.0.11/webgl-helper.min.js"></script>
+  <div id="window-overlay"></div>
+  <div id="resume-window">
+    <div class="window-title-bar">
+      <div class="window-title">
+        <span style="font-size: 18px;">📄</span>
+        My Resume
+      </div>
+      <div class="window-controls">
+        <button class="window-btn">□</button>
+        <button class="window-btn close-btn">X</button>
+      </div>
+    </div>
+
+
+    <div class="window-toolbar">
+      <a href="/Kaushik K - Resume.pdf" download class="toolbar-btn" title="Save Copy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+          <polyline points="17 21 17 13 7 13 7 21"></polyline>
+          <polyline points="7 3 7 8 15 8"></polyline>
+        </svg>
+        Save
+      </a>
+      <button class="toolbar-btn" id="resume-print" title="Print">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print
+      </button>
+      <a href="#contact" onclick="document.querySelector('.close-btn').click()" class="toolbar-btn" title="Contact Me">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        Contact
+      </a>
+    </div>
+
+    <div class="window-content">
+      <iframe src="/Kaushik K - Resume.pdf#view=FitH" class="resume-frame"></iframe>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

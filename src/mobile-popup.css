@@ -1,0 +1,113 @@
+#mobile-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.mobile-popup-content {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(10px);
+    animation: popupSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accent top border/decoration */
+.mobile-popup-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #ffae42, #ff7b00);
+}
+
+.mobile-popup-icon {
+    margin-bottom: 1.5rem;
+    color: #ffae42;
+    background: rgba(255, 174, 66, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-popup-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.mobile-popup-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    /* Inherit main font */
+    font-weight: 700;
+}
+
+.mobile-popup-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.mobile-popup-btn {
+    background: linear-gradient(135deg, #ffae42, #ff9000);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(255, 174, 66, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 174, 66, 0.5);
+    background: linear-gradient(135deg, #ffbd5e, #ff9e1f);
+}
+
+.mobile-popup-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes popupSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

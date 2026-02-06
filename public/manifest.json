@@ -1,0 +1,35 @@
+{
+  "short_name": "Kaushik K",
+  "name": "Kaushik K – Portfolio",
+  "icons": [
+    {
+      "src": "icon/logo.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/logo.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/logo.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffae42",
+  "background_color": "#ffae42"
+}
