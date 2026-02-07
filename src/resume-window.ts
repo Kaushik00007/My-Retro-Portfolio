@@ -28,7 +28,7 @@ export function initResumeWindow() {
         // Reset position on open
         xOffset = 0;
         yOffset = 0;
-        modal.style.transform = "translate(-50%, -50%)";
+        modal.style.transform = ""; 
     });
 
     // CLOSE
