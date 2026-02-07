@@ -19,6 +19,18 @@ export function initResumeWindow() {
 
     if (!modal || !overlay || !openBtn || !closeBtn || !titleBar) return;
 
+    // Mobile PDF Fix: Use Google Drive Embed for better mobile compatibility
+    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    const DRIVE_FILE_ID = "1cC8CDNlkzMP2nGqSc7yMacFUgrKgse2g";
+
+    if (isMobile) {
+        const iframe = modal.querySelector('iframe');
+        if (iframe) {
+            iframe.src = `https://drive.google.com/file/d/${DRIVE_FILE_ID}/preview`;
+        }
+    }
+
     // OPEN
     openBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -28,7 +40,7 @@ export function initResumeWindow() {
         // Reset position on open
         xOffset = 0;
         yOffset = 0;
-        modal.style.transform = ""; 
+        modal.style.transform = "";
     });
 
     // CLOSE
