@@ -174,23 +174,47 @@
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     #resume-window {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        /* Use % instead of vw to avoid scrollbar issues */
+        height: 100%;
+        /* Use % instead of vh */
         top: 0;
         left: 0;
-        transform: none;
+        transform: none !important;
+        /* Force override */
         max-width: none;
         max-height: none;
         border: none;
+        border-radius: 0;
     }
 
     #resume-window.active {
-        animation: none;
-        transform: none;
+        animation: mobileSlideUp 0.3s ease-out;
+    }
+
+    @keyframes mobileSlideUp {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
     }
 
     .window-title-bar {
         cursor: default;
-        /* Disable drag on mobile */
+        padding: 12px;
+    }
+
+    .window-content {
+        padding: 0;
+        /* Maximize space for PDF */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .resume-frame {
+        width: 100%;
+        height: 100%;
     }
 }
