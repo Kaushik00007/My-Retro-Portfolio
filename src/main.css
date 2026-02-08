@@ -377,6 +377,14 @@ a:active {
   .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Center the last item if we have an odd number */
+  .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 
 .project-card {
@@ -1067,11 +1075,6 @@ a:active {
 
   .tech-date {
     margin-top: 4px;
-  }
-
-  /* Buttons on bottom for mobile? */
-  .tech-carousel-wrapper {
-    /* Keep side by side but specific adjustments */
   }
 
   .carousel-btn {
