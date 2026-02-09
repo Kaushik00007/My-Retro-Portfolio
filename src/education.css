@@ -8,7 +8,7 @@
 .section-title-wrapper h1 {
     display: inline-block;
     margin-bottom: 16px;
-    /* Keeping the existing h1 style */
+    /* Keeping the existing h1 style with animations */
 }
 
 /* Container */
