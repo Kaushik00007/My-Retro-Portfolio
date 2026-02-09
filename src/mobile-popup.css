@@ -29,7 +29,6 @@
     overflow: hidden;
 }
 
-/* Accent top border/decoration */
 .mobile-popup-content::before {
     content: '';
     position: absolute;
