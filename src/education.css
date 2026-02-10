@@ -8,7 +8,7 @@
 .section-title-wrapper h1 {
     display: inline-block;
     margin-bottom: 16px;
-    /* Keeping the existing h1 style with animations */
+    /* Keeping the existing h1 style */
 }
 
 /* Container */
@@ -220,40 +220,93 @@
 
 /* Mobile Responsive */
 @media (max-width: 700px) {
+    .section-title-wrapper h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.5rem;
+        /* Smaller header for mobile */
+    }
+
+    .section-title-wrapper h1 .icon {
+        margin-right: 0 !important;
+        /* Remove margin since we gap via flex */
+        width: 32px;
+        height: 32px;
+    }
+
     .education-banner {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 24px;
+        align-items: center;
+        /* Center align for better mobile look */
+        padding: 16px;
+        /* Reduced padding */
+        text-align: center;
     }
 
     .banner-content {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        align-items: center;
+        gap: 12px;
     }
 
     .college-logo-wrapper {
-        width: 60px;
-        height: 60px;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 4px;
     }
 
+    .college-info-banner {
+        align-items: center;
+        /* Center the text stack */
+        width: 100%;
+    }
 
     .institute-name {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        /* Slightly smaller to prevent partial word wraps */
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .location-badge {
+        font-size: 0.8rem;
+    }
+
+    .education-body {
+        padding: 16px;
+        /* Reduced from 32px to give content more room */
+        gap: 20px;
     }
 
     .degree-title {
-        font-size: 1rem;
+        font-size: 0.95rem;
         border-left: none;
         padding-left: 0;
+        text-align: center;
+        /* Center title */
     }
 
     .education-stats {
+        justify-content: center;
+        /* Center the pills */
         gap: 12px;
     }
 
     .stat-pill {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         padding: 6px 12px;
+        flex: 1 1 auto;
+        /* Allow them to shrink but stay substantial */
+        justify-content: center;
+    }
+
+    .coursework-section p {
+        text-align: center;
+    }
+
+    .coursework-tags {
+        justify-content: center;
     }
 }
