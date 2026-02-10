@@ -161,17 +161,10 @@
           <div class="about-text">
             <h1 id="aboutMe">About Me</h1>
             <p>
-              I'm Kaushik, a software engineering enthusiast with hands-on experience in full-stack development and
-              AI-based solutions.
-            </p>
-            <p>
-              Skilled in developing scalable, secure, and user-centric applications, with hands-on experience across
-              frontend development, backend services, cloud platforms, and database management. My focus is on writing
-              clean, efficient code and designing systems that are reliable and maintainable.
-            </p>
-            <p>
-              I'm eager to apply engineering principles to develop efficient software that solves real-world problems.
-              Let's work together to bring your ideas to life!
+              I'm Kaushik, a <b>Full Stack Developer</b> and <b>AI Enthusiast</b> focused on building scalable,
+              user-centric applications. With expertise in the <b>MERN stack</b>, <b>Cloud Platforms</b>, and <b>Machine
+                Learning</b>, I bridge the gap between complex backend logic and intuitive frontend design. Let's work
+              together to bring your ideas to life!
             </p>
           </div>
           <div class="about-image-wrapper">
@@ -416,6 +409,7 @@
           <p><a href="https://github.com/Kaushik00007/NEXORA">Source Code</a></p>
         </article>
 
+        <!-- Project 0: Portfolio Website (Hidden Initially) -->
         <article class="project-card hidden-project" style="display: none;">
           <h2>Portfolio Website</h2>
           <ul class="skills">
@@ -487,6 +481,7 @@
 
         hiddenProjects.forEach((el) => {
           el.style.display = 'flex';
+          // Force visibility immediately 
           setTimeout(() => {
             el.classList.add('reveal-on-scroll', 'is-visible');
           }, 10);
