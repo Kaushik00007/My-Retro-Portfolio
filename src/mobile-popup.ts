@@ -36,7 +36,7 @@ function showPopup() {
   content.innerHTML = `
     ${iconSvg}
     <h2>Desktop Recommended</h2>
-    <p>For the best immersive experience and to access all 3D features, we recommend using a desktop or laptop device.</p>
+    <p>For the best immersive experience and to access all 3D features, I recommend using a desktop or laptop device.</p>
     <button class="mobile-popup-btn" id="mobile-popup-continue">Continue on Mobile</button>
   `;
 
