@@ -4,14 +4,23 @@
 
 A 3D interactive portfolio website featuring a retro computer interface. It combines a 3D WebGL scene (Three.js) with a functional terminal emulator and a standard DOM overlay for content.
 
-## 🛠 Technology Stack
+## 🛠️ Tech Stack
 
--   **Runtime**: Node.js (v18+ recommended)
--   **Language**: TypeScript
--   **Bundler**: Vite
--   **3D Framework**: Three.js
--   **UI/Styling**: HTML5, CSS3, Lil-GUI (for debug controls)
--   **Utilities**: Stats.js (performance monitoring), EmailJS (contact form)
+### 🖥️ Frontend
+![3D](https://img.shields.io/badge/3D-Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white) 
+![Frontend](https://img.shields.io/badge/Frontend-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) 
+![Styling](https://img.shields.io/badge/Styling-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
+![Tools](https://img.shields.io/badge/Tools-Lil--GUI-FF69B4?style=for-the-badge&logo=google-chrome&logoColor=white)
+
+### ⚙️ Backend & Development
+![Runtime](https://img.shields.io/badge/Runtime-Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) 
+![Language](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) 
+![Bundler](https://img.shields.io/badge/Bundler-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) 
+![Package Manager](https://img.shields.io/badge/Tools-NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
+### 📧 Services
+![Contact Form](https://img.shields.io/badge/Auth-EmailJS-F0AB00?style=for-the-badge&logo=mailgun&logoColor=white) 
+![Stats](https://img.shields.io/badge/Stats-Stats.js-000000?style=for-the-badge&logo=speedtest&logoColor=white)
 
 ## 📂 Project Structure
 
@@ -74,11 +83,12 @@ Standard HTML/CSS UI elements overlaid on the 3D canvas.
     ```bash
     npm run build
     ```
+
 ## 📧 Contact
 For any queries, reach out via:
 
-- 📧 Email: kaushi00007@gmail.com  
-- 🔗 LinkedIn: https://www.linkedin.com/in/kaushik-k-dev
-- 🌍 GitHub: https://github.com/Kaushik00007/Kaushik00007
+- 📧 Email: kaushi00007@gmail.com
+- 🔗 LinkedIn: [Kaushik K](https://www.linkedin.com/in/kaushik-k-dev)
+- 🌍 GitHub: [Kaushik00007](https://github.com/Kaushik00007/Kaushik00007)
 
-## Built with using TypeScript, Three.js, vite and Node.js.
+## Built with ❤️ using TypeScript, Three.js, Vite and Node.js.
