@@ -378,6 +378,13 @@ a:active {
     grid-template-columns: 1fr 1fr;
   }
 
+  .project-card.featured {
+    grid-column: 1 / -1;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   /* Center the last item if we have an odd number */
   .project-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
